@@ -1,0 +1,15 @@
+{
+  "name": "phone",
+  "version": "1.0.0",
+  "description": "A simple command line interface to send text to an attached Android phone",
+  "main": "atu.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marc Betts",
+  "license": "ISC",
+  "dependencies": {
+    "shelljs": "^0.8.3",
+    "vorpal": "^1.12.0"
+  }
+}
