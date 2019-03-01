@@ -34,7 +34,20 @@ vorpal
     ).stdout
     shell.exec('adb tcpip 5555')
     shell.exec('adb connect ' + ip)
-    console.log(ip)
+    callback()
+  })
+
+vorpal.command('ip', 'get device IP address').action((args, callback) => {
+  shell.exec(
+    "adb shell ip addr show wlan0 | grep 'inet ' | cut -d' ' -f6|cut -d/ -f1"
+  )
+  callback()
+})
+
+vorpal
+  .command('rn', 'set reverse socket connection for install react native app')
+  .action((args, callback) => {
+    shell.exec('adb reverse tcp:8081 tcp:8081')
     callback()
   })
 
