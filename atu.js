@@ -37,6 +37,13 @@ vorpal
     callback()
   })
 
+vorpal
+  .command('disconnect', 'disconnect wifi device')
+  .action((args, callback) => {
+    shell.exec('adb disconnect')
+    callback()
+  })
+
 vorpal.command('ip', 'get device IP address').action((args, callback) => {
   shell.exec(
     "adb shell ip addr show wlan0 | grep 'inet ' | cut -d' ' -f6|cut -d/ -f1"
