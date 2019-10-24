@@ -10,6 +10,13 @@ vorpal
   })
 
 vorpal
+  .command('tab', 'send a tab event to android device')
+  .action((args, callback) => {
+    shell.exec('adb shell input keyevent 61')
+    callback()
+  })
+
+vorpal
   .command(
     'screenshot [filename]',
     'capture a screenshot with optional filename'
