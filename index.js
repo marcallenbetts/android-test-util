@@ -18,6 +18,22 @@ program
   })
 
 program
+  .command('packages')
+  .description('list installed packages')
+  .action(() => {
+    shell.exec("adb shell 'pm list packages -f' | sed -e 's/.*=//' | sort")
+  })
+
+program
+  .command('activity <package>')
+  .description('get launchable activity for package')
+  .action((package) => {
+    shell.exec(
+      `adb shell "cmd package resolve-activity --brief ${package} | tail -n 1" `
+    )
+  })
+
+program
   .command('devices')
   .description('adb devices')
   .action(() => {
